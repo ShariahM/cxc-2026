@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1A1A1A;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.dropbox {
+  background-color: #272727;
+  border-radius: 8px;
+  padding: 60px 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dropbox.dragging {
+  border-color: #4a90e2;
+  background-color: #272727;
+}
+
+.dropbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.dropbox-text {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.dropbox-or {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.file-label:hover {
+  background-color: #357abd;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-name {
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.file-size {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.clear-button {
+  margin-top: 8px;
+  padding: 10px 28px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.clear-button:hover {
+  background-color: #c0392b;
+}
