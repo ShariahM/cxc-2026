@@ -59,4 +59,3 @@ htmlcov/
 frames/*
 
 yolov8x.pt
-detections/*
