@@ -57,3 +57,6 @@ htmlcov/
 
 #frames
 frames/*
+
+yolov8x.pt
+detections/*

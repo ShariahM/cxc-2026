@@ -58,14 +58,8 @@ function App() {
     alert("Upload failed");
   }
   finally {
-    const res2 = await fetch("http://localhost:8000/api/analysis/start", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        filename: modified_name
-      })
+    const res2 = await fetch(`http://localhost:8000/api/analysis/process/${modified_name}`, {
+      method: "POST"
     });
   }
 }

@@ -40,8 +40,7 @@ async def start_analysis(request: AnalysisRequest, background_tasks: BackgroundT
     # TODO: Implement your video analysis logic here
     # This is a placeholder that you can populate with your analysis code
     output_path = Path(f"frames/{request.filename.split('.')[0]}")
-    async def process_video(video_id: str, background_tasks: BackgroundTasks):
-        background_tasks.add_task(process_pipeline, request.filename)
+
     return AnalysisResult(
         filename=request.filename,
         status="completed",
@@ -51,6 +50,17 @@ async def start_analysis(request: AnalysisRequest, background_tasks: BackgroundT
         }
     )
 
+@router.post("/process/{video_id}")
+async def process_video(
+    video_id: str,
+    background_tasks: BackgroundTasks
+):
+    background_tasks.add_task(process_pipeline, video_id)
+
+    return {
+        "status": "processing",
+        "video_id": video_id
+    }
 @router.get("/status/{filename}")
 async def get_analysis_status(filename: str):
     """
