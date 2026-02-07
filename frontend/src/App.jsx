@@ -29,8 +29,34 @@ function App() {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       setFile(selectedFile);
+      uploadVideo(selectedFile, 1, )
     }
   };
+
+  async function uploadVideo(file, setVideoId) {
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const res = await fetch("http://localhost:8000/api/upload/video", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!res.ok) {
+      throw new Error("Upload failed");
+    }
+
+    //const data = await res.json();
+    //setVideoId(data.video_id);
+
+  } catch (err) {
+    console.error(err);
+    alert("Upload failed");
+  }
+}
+
 
   const handleClear = () => {
     setFile(null);
