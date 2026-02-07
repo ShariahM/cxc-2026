@@ -3,16 +3,17 @@ from pathlib import Path
 import json
 
 def run_yolo(frames_dir: Path, output_json: Path):
-    model = YOLO("yolov8x.pt")
+    model = YOLO("yolos/best.pt")
 
     results = model.track(
         source=str(frames_dir),
-        tracker="bytetrack.yaml",
-        conf=0.4,
+        #tracker="bytetrack.yaml",
+        conf=0.3,
         iou=0.5,
-        persist=True,
+        #persist=True,
         classes=[0],  # Only detect people
-        imgsz=1280,   
+        imgsz=640,
+        save=True   
     )
 
     output = {}
