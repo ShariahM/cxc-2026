@@ -7,10 +7,10 @@ def run_yolo(frames_dir: Path, output_json: Path):
 
     results = model.track(
         source=str(frames_dir),
-        #tracker="bytetrack.yaml",
+        tracker="yolos/bytetrack.yaml",
         conf=0.3,
         iou=0.5,
-        #persist=True,
+        persist=True,
         classes=[0],  # Only detect people
         imgsz=640,
         save=True   

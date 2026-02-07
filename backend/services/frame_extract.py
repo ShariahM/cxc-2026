@@ -1,7 +1,7 @@
 import subprocess
 from pathlib import Path
 
-def extract_frames(video_path: Path, output_dir: Path, fps: int = 5):
+def extract_frames(video_path: Path, output_dir: Path, fps: int = 7):
     """
     Extract frames from video at `fps` frames per second.
     """

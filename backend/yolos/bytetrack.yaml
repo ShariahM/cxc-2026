@@ -1,0 +1,19 @@
+# ByteTrack tuned for NFL / sports footage
+
+tracker_type: bytetrack
+
+# Accept lower-confidence detections so players are not dropped
+track_high_thresh: 0.25
+track_low_thresh: 0.1
+
+# Allow new tracks to start easily (players enter frame often)
+new_track_thresh: 0.2
+
+# Keep tracks alive longer during occlusions
+track_buffer: 75
+
+# Slightly lower IoU matching threshold for fast motion
+match_thresh: 0.7
+
+# Fuse confidence with IoU for stability
+fuse_score: True
