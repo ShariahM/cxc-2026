@@ -12,6 +12,7 @@ def run_yolo(frames_dir: Path, output_json: Path):
         iou=0.5,
         persist=True,
         classes=[0],  # Only detect people
+        imgsz=1280,   
     )
 
     output = {}
