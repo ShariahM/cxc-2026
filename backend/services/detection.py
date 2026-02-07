@@ -19,12 +19,13 @@ def run_yolo(frames_dir: Path, output_json: Path):
     )
 
     output = {}
+    prev_team_centers = None  # Track team colors across frames
 
     for r in results:
         frame_name = Path(r.path).name
         frame_path = frames_dir / frame_name
 
-        frame = cv2.imread(str(frame_path))  # 👈 load image
+        frame = cv2.imread(str(frame_path)) 
 
         output[frame_name] = []
 
@@ -42,8 +43,9 @@ def run_yolo(frames_dir: Path, output_json: Path):
                 colors.append(color)
                 valid.append((box, track_id))
 
-        # PASS 2 — cluster
-        teams = cluster_players(colors)
+        # PASS 2 — cluster with frame-to-frame consistency
+        teams, team_centers = cluster_players(colors, prev_team_centers)
+        prev_team_centers = team_centers  # Save for next frame
 
         # PASS 3 — write JSON
         for (box, track_id), team in zip(valid, teams):
